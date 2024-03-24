@@ -38,6 +38,7 @@ function updateNavOnLogin() {
 }
 
 
+// Show create story form when user clicks on submit button in navbar
 function navCreateStoryClick(e) {
   e.preventDefault();
   $('.submit_form').show();
@@ -49,7 +50,7 @@ $submit.on('click', navCreateStoryClick);
 
 
 
-
+// Show favorites list when user clicks on my favorites in the navbar
 function navPutFavoritesOnPage(e) {
   e.preventDefault()
   $allStoriesList.empty();
@@ -66,7 +67,7 @@ function navPutFavoritesOnPage(e) {
 $('#favorites').on('click', navPutFavoritesOnPage)
 
 
-
+// Shows all the user's own stories when the user clicks on my stories in the navbar
 function navShowMyStories(e) {
   e.preventDefault();
   $allStoriesList.empty();

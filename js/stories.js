@@ -56,19 +56,27 @@ function putStoriesOnPage() {
 }
 
 
+
+// Creates a story when user submits the create story form
 async function createStory(e) {
   e.preventDefault();
+  
+  // collects story info
   const storyInfo = {
     author: $('#author').val(),
     title: $('#title').val(),
     url: $('#url').val(),
   }
 
+  // sends axios post request to add story to the database
   const response = await storyList.addStory(currentUser, storyInfo);
   $submitForm.hide();
   putStoriesOnPage();
+  
+  // adds story to the user object which contains an own stories array
   const story = new Story(response.data.story)
   currentUser.ownStories.unshift(story);
+  
   $('.submit_form')[0].reset()
 }
 
